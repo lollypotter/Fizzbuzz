@@ -21,6 +21,24 @@ namespace Fizzbuzz
             }
             return "";
         }
+        
+        static string Bang (int num)
+        {
+            if (num % 7 == 0)
+            {
+                return "Bang";
+            }
+            return "";
+        }
+        
+        static string Bong (int num)
+        {
+            if (num % 11 == 0)
+            {
+                return "Bong";
+            }
+            return "";
+        }
 
         static void Main(string[] args)
         {
@@ -29,7 +47,11 @@ namespace Fizzbuzz
                 var myString = "";
                 myString += Fizz(i);
                 myString += Buzz(i);
-                Console.WriteLine(myString == "" ? i : myString);
+                myString += Bang(i);
+                myString += Bong(i);
+
+
+                Console.WriteLine(myString == "" ? i : myString.Contains("Bong") ? "Bong" : myString);
             }
         }
     }
