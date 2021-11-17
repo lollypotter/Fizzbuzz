@@ -13,9 +13,9 @@ namespace Fizzbuzz
             return "";
         }
 
-        static string Buzz(int num2)
+        static string Buzz(int num)
         {
-            if (num2 % 5 == 0)
+            if (num % 5 == 0)
             {
                 return "Buzz";
             }
