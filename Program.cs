@@ -31,27 +31,62 @@ namespace Fizzbuzz
             return "";
         }
         
-        static string Bong (int num)
+        static string Bong (int num, string myString)
         {
             if (num % 11 == 0)
             {
                 return "Bong";
             }
-            return "";
+            return myString;
+        }
+        
+        static string Fezz (int num, string myString)
+        {
+            if (num % 13 == 0 && myString == "")
+            {
+                myString = "Fezz";
+                return myString;
+            }
+
+            if (num % 13 == 0 && myString != "")
+            {
+                int index = myString.IndexOf('B');
+
+                if (index > -1)
+                {
+                    string insertedString = myString.Insert(index, "Fezz");
+                    return insertedString;
+                }
+
+                string addedString = myString += "Fezz";
+                return addedString;
+            }
+            return myString;
+        }
+        
+        static string Reverse (int num, string myString)
+        {
+            if (num % 17 == 0)
+            {
+                
+                return "Bong";
+            }
+            return myString;
         }
 
         static void Main(string[] args)
         {
-            for (var i = 1; i < 101; i++)
+            for (var i = 1; i < 175; i++)
             {
                 var myString = "";
                 myString += Fizz(i);
                 myString += Buzz(i);
                 myString += Bang(i);
-                myString += Bong(i);
+                myString = Bong(i, myString);
+                myString = Fezz(i, myString);
+                myString = Reverse(i, myString);
 
-
-                Console.WriteLine(myString == "" ? i : myString.Contains("Bong") ? "Bong" : myString);
+                Console.WriteLine(myString == "" ? i : myString);
             }
         }
     }
